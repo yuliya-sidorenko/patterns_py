@@ -10,6 +10,7 @@ def render(template_name, folder='templates', **kwargs):
     :return:
     """
     file_path = os.path.join(folder, template_name)
+    print(file_path)
     # Открываем шаблон по имени
     with open(file_path, encoding='utf-8') as file:
         # Читаем

@@ -1,9 +1,10 @@
 import quopri
-
+#from request import PostRequests, GetRequests
+from frankenstein_framework.request import PostRequests, GetRequests
 
 class PageNotFound404:
     def __call__(self, request):
-        return '404 WHAT', '404 PAGE Not Found'
+        return '404 WHAT', '404 Page Not Found'
 
 
 class FrameworkFranky:
@@ -17,10 +18,35 @@ class FrameworkFranky:
     def __call__(self, environ, start_response):
         # получаем адрес, по которому выполнен переход
         path = environ['PATH_INFO']
+        print('Печать environ')
+        print(path)
 
         # добавление закрывающего слеша
         if not path.endswith('/'):
             path = f'{path}/'
+
+        request = {}
+        # Получаем все данные запроса
+        method = environ['REQUEST_METHOD']
+        print(f'Получаем все данные запроса {method}')
+        request['method'] = method
+        print(request['method'])
+        print(environ)
+
+        if method == 'POST':
+            data = PostRequests().get_request_params(environ)
+            print(f'Отображаем данные которые пришли в байтах {data}')
+            print(type(data))
+            request['data'] = data
+            print(f'Нам пришёл post-запрос: {FrameworkFranky.decode_func(data)}')
+        if method == 'GET':
+            request_params = GetRequests().get_request_params(environ)
+            print(environ)
+            request['request_params'] = request_params
+            print(request)
+            print(f'Нам пришли GET-параметры: {request_params}')
+
+
 
         # находим нужный контроллер
         # отработка паттерна page controller

@@ -4,10 +4,6 @@
 <meta charset="UTF-8">
 <title>Курсы</title>
 <style type="text/css">
-a{
-color: #fff;
-text-decoration: none;
-}
 html{
 background: #FFF8CC;
 min-height: 100%;
@@ -22,53 +18,74 @@ display: flex;
 flex-direction: column;
 flex: auto;
 }
-h1{
-margin-top: 0;
-}
-h1, p{
-color: #006064;
-}
-img{
-border: 0;
-}
-.header{
-width: 100%;
-min-width: 460px;
-max-width: 960px;
-margin: 0 auto 30px;
-padding: 30px 0 10px;
-display: flex;
-flex-wrap: wrap;
-justify-content: space-between;
-box-sizing: border-box;
-}
+ #navbar ul{
+        display: none;
+        background-color: #E6E6FA;
+        position: absolute;
+        top: 100%;
+      }
+      #navbar li:hover ul { display: block; }
+      #navbar, #navbar ul{
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+      }
+      #navbar {
+        height: 30px;
+        background-color: #E6E6FA;
+        padding-left: 25px;
+        min-width: 470px;
+      }
+      #navbar li {
+        float: left;
+        position: relative;
+        height: 100%;
+      }
+      #navbar li a {
+        display: block;
+        padding: 6px;
+        width: 100px;
+        color: #000000;
+        text-decoration: none;
+        text-align: center;
+      }
+      #navbar ul li { float: none; }
+      #navbar li:hover { background-color: #DDA0DD; }
+      #navbar ul li:hover { background-color: #DDA0DD; }
+
+h3{
+ color: #000080;
+  font-size: 120%;
+  font-family: Arial, Verdana, sans-serif;
+  }
+
+table {
+    border-collapse: collapse; /* Убираем двойные границы между ячейками */
+    background: #dc0; /* Цвет фона таблицы */
+    border: 1px solid #000; /* Рамка вокруг таблицы */
+   }
 th, td {
-				
-				background-color: #FF69B4;
-				border-top: 1px solid #f1f8fe;
-				border-bottom: 1px solid #cbd2d8;
-				border-right: 1px solid #cbd2d8;
-                                text-align: center;}
-			tr.head th {
-				color: #000000;
-				background-color: #FFA07A;
-				border-bottom: 2px solid #547ca0;
-				border-right: 1px solid #749abe;
-				border-top: 1px solid #90b4d6;
-				text-align: center;
-				
-				letter-spacing: 0.10em;}
-			
-			tr.even td, tr.even th {
-				background-color: #000000;}
-			tr.head th:first-child {
-				-webkit-border-top-left-radius: 5px;
-				-moz-border-radius-topleft: 5px;
-				border-top-left-radius: 5px;}
-			tr.head th:last-child {
-				-webkit-border-top-right-radius: 5px;
-				-moz-border-radius-topright: 5px;
-				border-top-right-radius: 5px;}
+
+    background-color: #E6E6FA;
+    border-top: 1px solid #000000;
+    oborder-bottom: 1px solid #000000;
+    border-right: 1px solid #000000;
+    border-left: 1px solid #000000;
+    text-align: center;}
+
+   tr.head th {
+
+    color: #000000;
+    background-color: #DDA0DD;
+    border-bottom: 1px solid #000000;
+    border-right: 1px solid #000000;
+    border-top: 1px solid #000000;
+    border-left: 1px solid #000000;
+    text-align: center;
+
+    letter-spacing: 0.10em;}
+
+ /*
 .logo{
 font-size: 1.5rem;
 color: #fff;
@@ -177,143 +194,162 @@ background: #FFA985;
 width: 50px;
 height: 50px;
 }
-.footer{
-background: #FF3366;
-width: 100%;
-max-width: 960px;
-min-width: 460px;
-color: #fff;
-margin: auto;
-padding: 15px;
-box-sizing: border-box;
-}
+.footer-menu{
+            padding:3em 0;
+            box-shadow: 0 0px 10px #ccc;
+            background-color: #fff;
+        }
+        .footer-container{
+            width: 70%;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .footer-menu ul li{
+            display:inline-block;
+        }
+        .footer-menu ul li a{
+            color:#6E6E6E;
+            margin:0 1em;
+            font-size:1.2rem;
+            text-decoration:none;
+        }
+        .footer-menu ul li a:hover{
+            color:#EE7B00;
+        }
+        p.copy-right{
+            font-size:1em;
+        }
+        p.copy-right a{
+            color:#D46E00;
+            text-decoration:none;
+        }
+        p.copy-right a:hover{
+            color:#25221C;
+        }
 
-@media screen and  (max-width: 800px) {
-.banners{
-margin-left: -30px;
-display: flex;
-flex-basis: 100%;
-}
-.banner{
-margin-left: 30px;
-}
-.posts{
-margin-left: 0;
-}
-}
-@media screen and  (max-width: 600px) {
-.content{
-display: block;
-}
-.banners{
-margin: 0;
-display: block;
-}
-.banner{
-margin-left: 0;
-}
-.posts{
-margin: 0;
-}
+
+}*/
+
+.footer-menu{
+            padding:0.3em 0;
+            -box-shadow: 0 0px 10px #ccc;
+            background-color: #E6E6FA;
+        }
+        .footer-container{
+            width: 80%;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .footer-menu ul li{
+            display:inline-block;
+        }
+        .footer-menu ul li a{
+            color:#000000;
+            margin:0 1em;
+            font-size:1rem;
+            text-decoration:none;
+        }
+        .footer-menu ul li a:hover{
+            color:#DDA0DD;
+        }
+        p.copy-right{
+            -font-size:1em;
+        }
+        p.copy-right a{
+            color:#D46E00;
+            text-decoration:none;
+        }
+        p.copy-right a:hover{
+            color:#25221C;
+        }
+
 }
 </style>
 </head>
 <body>
-<!--header class="header">
-<a class="logo">
-LOGO
-</a>
-<nav class="nav">
-<a href="#posts" class="nav-item">Посты</a>
-<a href="#comments" class="nav-item">Комменты</a>
-<a href="#footer" class="nav-item">Подвал</a>
-<a href="#posts" class="nav-item">Посты2</a>
-</nav-->
 
-</header>
+
+
 <main class="main">
-<div class="box">
-<div class="box-base">
+<ul id="navbar">
+      <li><a href="#">Главная</a></li>
+      <li><a href="#">Новости</a></li>
+      <li><a href="#">Контакты</a>
+        <ul>
+          <li><a href="#">Адрес</a></li>
+          <li><a href="#">Телефон</a></li>
+          <li><a href="#">Email</a></li>
+        </ul>
+      </li>
+      <li><a href="#">О нас</a></li>
+    </ul>
 
-<h1>Наш единственный курс курс</h1>
-		<p>Успей принять участие!</p>
+
+  <p>Успей принять участие!</p>
                 <p>Расписание на дату: {{data}} ))) такое же как и на другие даты!</p>
 
-<!--p>Наши курсы:</p-->
 
 <table>
-			<tr class="head">
-				<th>Название курса</th>
-				<th>Количество уроков</th>
-				<th>Срок проведения</th>
-				<th>Место проведения</th>
-			</tr>
-			<tr>
-				<th>Архитектуры и шаблоны проектирования на python</th>
-				<td>9</td>
-				<td>20.04.21-21.05.21</td>
-				<td>Anywhere</td>
-			</tr>
-		</table>
-<!--div class="box-side"-->
-<!--div class="sqr"-->
-
-</div>
-</div>
-</div>
-
-<div class="content">
+   <tr class="head">
+    <th>Название курса</th>
+    <th>Количество уроков</th>
+    <th>Срок проведения</th>
+    <th>Место проведения</th>
+   </tr>
+   <tr>
+    <td>Архитектуры и шаблоны проектирования на python</td>
+    <td>9</td>
+    <td>20.04.21-21.05.21</td>
+    <td>Anywhere</td>
+   </tr>
+  </table>
 
 
 </div>
-
 </div>
-<div class="posts"  id="posts">
-<div class="post">
+</div>
+
 
 </table>
-		<form action="" method="post">
-			<fieldset>
-				<legend>Зарегистрируйтесь</legend>
-				<p><label class="title" for="name">Ваше имя:</label>
-					 <input type="text" name="name" id="name"><br />
-					 <label class="title" for="email">Ваш email:</label>
-					 <input type="text" name="email" id="email"></p>
-				<p><label for="location" class="title">Ближайший центр:</label>
-					 <select name="location" id="location">
-						 <option value="ny">Где захочешь</option>
-						 
-					 </select></p>
-				<span class="title">Являетесь участником?</span>
-				<label><input type="radio" name="member" value="yes" /> Да</label>
-				<label><input type="radio" name="member" value="no" /> Нет</label></p>
-			</fieldset>
- 	    <div class="submit"><input type="submit" value="Регистрация" /></div>
-		</form>
+
+
+
+
+
+  <form style=margin-top:30px; action="" method="post">
+   <fieldset>
+    <legend>Регистрация</legend>
+    <p><label class="title" for="name">Ваше имя:</label>
+      <input type="text" name="name" id="name"><br />
+      <label style=margin-top:10px; class="title" for="email">Ваш email:</label>
+      <input style=margin-top:10px; type="text" name="email" id="email"></p>
+
+      <div class="submit" ><input type="submit" value="Регистрация" />
+      </div>
+   </fieldset>
+
+  </form>
 </div>
 
 
-</div>
-
-<!--div class="comment-base"-->
-</div>
-</div>
 
 
-</div>
-</div>
-<div class="comment-base">
-</div>
+
+<div style=margin-top:30px; class = "footer-menu">
+        <div class = "footer-container">
+        <ul>
+            <li> <a href="index.html"> Главная </a> </ li>
+            <li> <a href = "receies.html">Новости </a> </ li>
+            <li> <a href="404.html"> Контакты </a> </ li>
+            <li> <a href = "gallery.html "> О нас</a> </ li>
+
+        </ ul>
 </div>
 
-
-</div>
-</div>
-
-</div>
-</div>
-</div>
 </main>
-
 </body>
 </html>
