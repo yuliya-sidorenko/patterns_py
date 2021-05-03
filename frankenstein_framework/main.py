@@ -1,6 +1,6 @@
 import quopri
-#from request import PostRequests, GetRequests
 from frankenstein_framework.request import PostRequests, GetRequests
+
 
 class PageNotFound404:
     def __call__(self, request):
@@ -8,7 +8,6 @@ class PageNotFound404:
 
 
 class FrameworkFranky:
-
     """Класс FrameworkFranky - основа фреймворка"""
 
     def __init__(self, routes_obj, fronts_obj):
@@ -45,8 +44,6 @@ class FrameworkFranky:
             request['request_params'] = request_params
             print(request)
             print(f'Нам пришли GET-параметры: {request_params}')
-
-
 
         # находим нужный контроллер
         # отработка паттерна page controller
