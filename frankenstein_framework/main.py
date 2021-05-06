@@ -17,8 +17,8 @@ class FrameworkFranky:
     def __call__(self, environ, start_response):
         # получаем адрес, по которому выполнен переход
         path = environ['PATH_INFO']
-        print('Печать environ')
-        print(path)
+        #print('Печать environ')
+        #print(path)
 
         # добавление закрывающего слеша
         if not path.endswith('/'):
@@ -29,14 +29,16 @@ class FrameworkFranky:
         method = environ['REQUEST_METHOD']
         print(f'Получаем все данные запроса {method}')
         request['method'] = method
-        print(request['method'])
-        print(environ)
+        #print(request['method'])
+        #print(environ)
 
         if method == 'POST':
             data = PostRequests().get_request_params(environ)
             print(f'Отображаем данные которые пришли в байтах {data}')
             print(type(data))
             request['data'] = data
+            print(request['data'])
+            print(request)
             print(f'Нам пришёл post-запрос: {FrameworkFranky.decode_func(data)}')
         if method == 'GET':
             request_params = GetRequests().get_request_params(environ)
@@ -49,15 +51,20 @@ class FrameworkFranky:
         # отработка паттерна page controller
         if path in self.routes_lst:
             view = self.routes_lst[path]
+            print(path)
         else:
             view = PageNotFound404()
-        request = {}
+        print(request)
+        #request = {}
         # наполняем словарь request элементами
         # этот словарь получат все контроллеры
         # отработка паттерна front controller
         for front in self.fronts_lst:
+            print(front(request))
             front(request)
+        print(request)
         # запуск контроллера с передачей объекта request
+        print(f'Реквест {request}')
         code, body = view(request)
         start_response(code, [('Content-Type', 'text/html')])
         return [body.encode('utf-8')]
