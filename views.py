@@ -1,33 +1,45 @@
 from datetime import date
 from frankenstein_framework.templ import render
 from patterns.base_patterns import Engine, Logger
+from patterns.struct_patterns import DecosRoutes, DecosDebug
 
 site = Engine()
 logger = Logger('main')
 
+routes = {}
 
+
+@DecosRoutes(routes=routes, url='/')
 class Index:
+    @DecosDebug(name='Index')
     def __call__(self, request):
         return '200 OK', render('index.html', objects_list=site.categories)
 
 
+@DecosRoutes(routes=routes, url='/about/')
 class About:
+    @DecosDebug(name='About')
     def __call__(self, request):
         return '200 OK', render('about.html', data=request.get('data', None))
 
 
+@DecosRoutes(routes=routes, url='/study_programs/')
 class Programs:
+    @DecosDebug(name='Programs')
     def __call__(self, request):
         return '200 OK', render('study_programs.html', data=request.get('data', None))
 
 
 class NotFound404:
+    @DecosDebug(name='NotFound404')
     def __call__(self, request):
         return '404 WHAT', '404 PAGE Not Found'
 
 
 # контроллер - список курсов
+@DecosRoutes(routes=routes, url='/courses-list/')
 class CoursesList:
+    @DecosDebug(name='CoursesList')
     def __call__(self, request):
         logger.log('Список курсов')
         try:
@@ -39,9 +51,11 @@ class CoursesList:
 
 
 # контроллер - создать курс
+@DecosRoutes(routes=routes, url='/create-course/')
 class CreateCourse:
     category_id = -1
 
+    @DecosDebug(name='CreateCourse')
     def __call__(self, request):
         if request['method'] == 'POST':
             # метод пост
@@ -71,7 +85,9 @@ class CreateCourse:
 
 
 # контроллер - создать категорию
+@DecosRoutes(routes=routes, url='/create-category/')
 class CreateCategory:
+    @DecosDebug(name='CreateCategory')
     def __call__(self, request):
         print(request)
 
@@ -100,14 +116,18 @@ class CreateCategory:
 
 
 # контроллер - список категорий
+@DecosRoutes(routes=routes, url='/category-list/')
 class CategoryList:
+    @DecosDebug(name='CategoryList')
     def __call__(self, request):
         logger.log('Список категорий')
         return '200 OK', render('category_list.html', objects_list=site.categories)
 
 
 # контроллер - копировать курс
+@DecosRoutes(routes=routes, url='/copy-course/')
 class CopyCourse:
+    @DecosDebug(name='CopyCourse')
     def __call__(self, request):
         request_params = request['request_params']
 
