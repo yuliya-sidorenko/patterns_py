@@ -2,11 +2,6 @@ import quopri
 from frankenstein_framework.request import PostRequests, GetRequests
 
 
-class PageNotFound404:
-    def __call__(self, request):
-        return '404 WHAT', '404 Page Not Found'
-
-
 class FrameworkFranky:
     """Класс FrameworkFranky - основа фреймворка"""
 
@@ -107,3 +102,8 @@ class FakeFramework(FrameworkFranky):
     def __call__(self, environ, start_response):
         start_response('200 OK', [('Content-Type', 'text/html')])
         return [b'Hello from Fake']
+
+
+class PageNotFound404:
+    def __call__(self, request):
+        return '404 WHAT', '404 Page Not Found'
