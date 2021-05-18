@@ -1,14 +1,17 @@
 from datetime import date
 from frankenstein_framework.templ import render
-from patterns.base_patterns import Engine, Logger
+from patterns.base_patterns import Engine, Logger, MapperRegistry
 from patterns.struct_patterns import DecosRoutes, DecosDebug
 from patterns.behavioral_patterns import EmailNotifier, SmsNotifier,\
     ListView, CreateView, BaseSerializer
+from patterns.architectural_patterns_unit_of_work import UnitOfWork
 
 site = Engine()
 logger = Logger('main')
 email_notifier = EmailNotifier()
 sms_notifier = SmsNotifier()
+UnitOfWork.new_current()
+UnitOfWork.get_current().set_mapper_registry(MapperRegistry)
 
 routes = {}
 
